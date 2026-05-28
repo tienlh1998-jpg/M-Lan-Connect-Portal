@@ -27,6 +27,14 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<TabId>('tong-quan');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [notification, setNotification] = useState<string | null>(null);
+  const [activeTheme, setActiveTheme] = useState<'vibrant' | 'dark' | 'green' | 'blue'>(() => {
+    return (localStorage.getItem('mylan-theme') as any) || 'vibrant';
+  });
+
+  // Sync theme with localStorage and body custom property
+  useEffect(() => {
+    localStorage.setItem('mylan-theme', activeTheme);
+  }, [activeTheme]);
 
   // Modals visibility states
   const [showCreateEventModal, setShowCreateEventModal] = useState(false);
@@ -220,7 +228,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFCF0] text-[#1A1A1A] flex flex-col md:flex-row relative overflow-hidden" id="applet-portal-layout">
+    <div className={`min-h-screen bg-[var(--theme-bg)] text-[var(--theme-text)] flex flex-col md:flex-row relative overflow-hidden theme-${activeTheme}`} id="applet-portal-layout">
       
       {/* Neo-brutalist Background Decors */}
       <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#FFE66D] border-4 border-[#1A1A1A] rounded-full opacity-25 z-0"></div>
@@ -529,6 +537,8 @@ export default function App() {
               profile={profile}
               onUpdateProfile={(updated) => setProfile(updated)}
               onShowNotification={showNotificationToast}
+              activeTheme={activeTheme}
+              onChangeTheme={setActiveTheme}
             />
           )}
         </div>

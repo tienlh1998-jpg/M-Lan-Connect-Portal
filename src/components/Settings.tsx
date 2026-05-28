@@ -14,12 +14,16 @@ interface SettingsProps {
   profile: UserProfile;
   onUpdateProfile: (updatedProfile: UserProfile) => void;
   onShowNotification: (text: string) => void;
+  activeTheme?: string;
+  onChangeTheme?: (theme: 'vibrant' | 'dark' | 'green' | 'blue') => void;
 }
 
 export default function SettingsView({
   profile,
   onUpdateProfile,
-  onShowNotification
+  onShowNotification,
+  activeTheme,
+  onChangeTheme
 }: SettingsProps) {
   const [name, setName] = useState(profile.name);
   const [department, setDepartment] = useState(profile.department);
@@ -131,6 +135,113 @@ export default function SettingsView({
                 </button>
               </div>
             </form>
+          </div>
+
+          {/* Theme Customizer Panel */}
+          <div className="glass-card rounded-3xl p-8 border border-outline-variant/15 shadow-xl space-y-5">
+            <div>
+              <h3 className="text-lg font-bold text-on-surface flex items-center gap-2 pb-3 border-b-4 border-outline">
+                <Sliders className="w-5 h-5 text-primary" />
+                Đổi mới giao diện hệ thống
+              </h3>
+              <p className="text-xs text-[#1A1A1A]/70 mt-3 font-semibold dark:text-gray-300">
+                Lựa chọn dải màu phong cách chủ đạo phù hợp nhất với tâm trạng và phong thái học tập, sinh hoạt của bạn:
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-1">
+              {/* Vibrant */}
+              <button 
+                type="button"
+                onClick={() => {
+                  if (onChangeTheme) {
+                    onChangeTheme('vibrant');
+                    onShowNotification('Thay đổi sang Giao diện Vibrant Neobrutalism thành công!');
+                  }
+                }}
+                className={`p-4 rounded-2xl border-2 flex flex-col items-center gap-3 transition-all cursor-pointer ${
+                  activeTheme === 'vibrant' 
+                    ? 'border-[#1A1A1A] bg-[#FFE66D]/20 shadow-[4px_4px_0px_#1A1A1A] scale-[1.02]' 
+                    : 'border-transparent hover:border-[#1A1A1A] hover:bg-[#FFE66D]/5'
+                }`}
+              >
+                <div className="flex gap-1.5 p-1 bg-white border-2 border-outline rounded-full">
+                  <span className="w-4 h-4 rounded-full bg-[#FF6B6B] border border-black"></span>
+                  <span className="w-4 h-4 rounded-full bg-[#4ECDC4] border border-black"></span>
+                  <span className="w-4 h-4 rounded-full bg-[#FFE66D] border border-black"></span>
+                </div>
+                <span className="text-xs font-black uppercase tracking-wider text-on-surface">Mặc định</span>
+              </button>
+
+              {/* Dark */}
+              <button 
+                type="button"
+                onClick={() => {
+                  if (onChangeTheme) {
+                    onChangeTheme('dark');
+                    onShowNotification('Kích hoạt Giao diện Cyber Dark bóng tối rạng ngời!');
+                  }
+                }}
+                className={`p-4 rounded-2xl border-2 flex flex-col items-center gap-3 transition-all cursor-pointer ${
+                  activeTheme === 'dark' 
+                    ? 'border-[#1A1A1A] bg-[#FFE66D]/20 shadow-[4px_4px_0px_#1A1A1A] scale-[1.02]' 
+                    : 'border-transparent hover:border-[#1A1A1A] hover:bg-[#FFE66D]/5'
+                }`}
+              >
+                <div className="flex gap-1.5 p-1 bg-[#1A1C29] border-2 border-[#1A1A1A] rounded-full">
+                  <span className="w-4 h-4 rounded-full bg-[#A29BFE] border border-black"></span>
+                  <span className="w-4 h-4 rounded-full bg-[#00cec9] border border-black"></span>
+                  <span className="w-4 h-4 rounded-full bg-[#ff7675] border border-black"></span>
+                </div>
+                <span className="text-xs font-black uppercase tracking-wider text-on-surface">Cyber Dark</span>
+              </button>
+
+              {/* Green */}
+              <button 
+                type="button"
+                onClick={() => {
+                  if (onChangeTheme) {
+                    onChangeTheme('green');
+                    onShowNotification('Gia nhập không gian Tropical Fresh Green mát rạng rỡ!');
+                  }
+                }}
+                className={`p-4 rounded-2xl border-2 flex flex-col items-center gap-3 transition-all cursor-pointer ${
+                  activeTheme === 'green' 
+                    ? 'border-[#1A1A1A] bg-[#FFE66D]/20 shadow-[4px_4px_0px_#1A1A1A] scale-[1.02]' 
+                    : 'border-transparent hover:border-[#1A1A1A] hover:bg-[#FFE66D]/5'
+                }`}
+              >
+                <div className="flex gap-1.5 p-1 bg-white border-2 border-outline rounded-full">
+                  <span className="w-4 h-4 rounded-full bg-[#2ECC71] border border-black"></span>
+                  <span className="w-4 h-4 rounded-full bg-[#FFE66D] border border-black"></span>
+                  <span className="w-4 h-4 rounded-full bg-[#FF9F43] border border-black"></span>
+                </div>
+                <span className="text-xs font-black uppercase tracking-wider text-on-surface">Xanh lá</span>
+              </button>
+
+              {/* Blue */}
+              <button 
+                type="button"
+                onClick={() => {
+                  if (onChangeTheme) {
+                    onChangeTheme('blue');
+                    onShowNotification('Thư thái cùng Giao diện Ocean Blue dạt dào!');
+                  }
+                }}
+                className={`p-4 rounded-2xl border-2 flex flex-col items-center gap-3 transition-all cursor-pointer ${
+                  activeTheme === 'blue' 
+                    ? 'border-[#1A1A1A] bg-[#FFE66D]/20 shadow-[4px_4px_0px_#1A1A1A] scale-[1.02]' 
+                    : 'border-transparent hover:border-[#1A1A1A] hover:bg-[#FFE66D]/5'
+                }`}
+              >
+                <div className="flex gap-1.5 p-1 bg-white border-2 border-outline rounded-full">
+                  <span className="w-4 h-4 rounded-full bg-[#3498DB] border border-black"></span>
+                  <span className="w-4 h-4 rounded-full bg-[#FF6B6B] border border-black"></span>
+                  <span className="w-4 h-4 rounded-full bg-[#A29BFE] border border-black"></span>
+                </div>
+                <span className="text-xs font-black uppercase tracking-wider text-on-surface">Ocean Blue</span>
+              </button>
+            </div>
           </div>
 
           {/* Preferences Toggles */}
