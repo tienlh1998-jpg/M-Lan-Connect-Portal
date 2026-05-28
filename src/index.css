@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #FF6B6B;
+  --color-on-primary: #FFFFFF;
+  --color-primary-container: #FFE66D;
+  --color-on-primary-container: #1A1A1A;
+  
+  --color-secondary: #4ECDC4;
+  --color-on-secondary: #1A1A1A;
+  --color-secondary-container: #4ECDC4;
+  --color-on-secondary-container: #1A1A1A;
+  
+  --color-tertiary: #FFE66D;
+  --color-on-tertiary: #1A1A1A;
+  --color-tertiary-container: #A29BFE;
+  --color-on-tertiary-container: #1A1A1A;
+  
+  --color-error: #FF6B6B;
+  --color-on-error: #FFFFFF;
+  --color-error-container: #FFE66D;
+  --color-on-error-container: #1A1A1A;
+  
+  --color-surface-dim: #FFFFFF;
+  --color-surface-bright: #FFFFFF;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-low: #FFFDF4;
+  --color-surface-container: #FFFFFF;
+  --color-surface-container-high: #FDFCF0;
+  --color-surface-container-highest: #E8E5CE;
+  
+  --color-on-surface: #1A1A1A;
+  --color-on-surface-variant: #2A2A2A;
+  --color-inverse-on-surface: #FDFCF0;
+  
+  --color-outline: #1A1A1A;
+  --color-outline-variant: #1A1A1A;
+  
+  --color-surface-tint: #FF6B6B;
+}
+
+/* Base Body Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #FDFCF0;
+  color: #1A1A1A;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 900 !important;
+  color: #1A1A1A !important;
+}
+
+/* Material Icons styling */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Neo-brutalist Panel Transformation */
+.glass-panel {
+  background: #FFFFFF !important;
+  border: 4px solid #1A1A1A !important;
+  border-radius: 24px !important;
+  box-shadow: 8px 8px 0px #1A1A1A !important;
+  color: #1A1A1A !important;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel:hover {
+  transform: translate(-3px, -3px) !important;
+  box-shadow: 11px 11px 0px #1A1A1A !important;
+}
+
+.glass-card {
+  background: #FFFFFF !important;
+  border: 4px solid #1A1A1A !important;
+  border-radius: 24px !important;
+  box-shadow: 8px 8px 0px #1A1A1A !important;
+  color: #1A1A1A !important;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card:hover {
+  transform: translate(-3px, -3px) !important;
+  box-shadow: 11px 11px 0px #1A1A1A !important;
+}
+
+/* Linear background fallback removal for charting */
+.chart-gradient {
+  background: linear-gradient(180deg, rgba(78, 205, 196, 0.15) 0%, rgba(78, 205, 196, 0) 100%);
+  border: 2px solid #1A1A1A !important;
+  border-radius: 12px;
+}
+
+/* Custom Scrollbars in Neo-Brutalist look */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #FDFCF0;
+  border-left: 3px solid #1A1A1A;
+}
+::-webkit-scrollbar-thumb {
+  background: #FFE66D;
+  border: 3px solid #1A1A1A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FF6B6B;
+}
+
+/* All inputs, selects, and textareas styled with sharp neo-brutalist aesthetic */
+input, select, textarea {
+  background-color: #FFFFFF !important;
+  color: #1A1A1A !important;
+  border: 3px solid #1A1A1A !important;
+  border-radius: 14px !important;
+  box-shadow: 3px 3px 0px #1A1A1A !important;
+  padding: 10px 14px !important;
+  font-weight: 600 !important;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+input:focus, select:focus, textarea:focus {
+  background-color: #FFFDF4 !important;
+  box-shadow: 5px 5px 0px #1A1A1A !important;
+  transform: translate(-1px, -1px);
+  outline: none !important;
+}
+
+/* Custom Alert / Notice boxes mapping */
+.bg-primary\/10, .bg-secondary\/10, .bg-tertiary\/10 {
+  background-color: #FFE66D !important;
+  color: #1A1A1A !important;
+  border: 3px solid #1A1A1A !important;
+  box-shadow: 3px 3px 0px #1A1A1A !important;
+  border-radius: 14px !important;
+  opacity: 1 !important;
+}
+
+/* Beautiful custom button mappings for precise styling */
+button.bg-primary, .btn-primary {
+  background-color: #FF6B6B !important;
+  color: #FFFFFF !important;
+  border: 3px solid #1A1A1A !important;
+  box-shadow: 4px 4px 0px #1A1A1A !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+button.bg-primary:hover, .btn-primary:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 6px 6px 0px #1A1A1A !important;
+}
+button.bg-primary:active, .btn-primary:active {
+  transform: translate(0px, 0px) !important;
+  box-shadow: 2px 2px 0px #1A1A1A !important;
+}
+
+button.bg-secondary, .btn-secondary {
+  background-color: #4ECDC4 !important;
+  color: #1A1A1A !important;
+  border: 3px solid #1A1A1A !important;
+  box-shadow: 4px 4px 0px #1A1A1A !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+button.bg-secondary:hover, .btn-secondary:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 6px 6px 0px #1A1A1A !important;
+}
+
+button.bg-tertiary, .btn-tertiary {
+  background-color: #FFE66D !important;
+  color: #1A1A1A !important;
+  border: 3px solid #1A1A1A !important;
+  box-shadow: 4px 4px 0px #1A1A1A !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+button.bg-tertiary:hover, .btn-tertiary:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 6px 6px 0px #1A1A1A !important;
+}
+
+/* Category or status filters */
+button[class*="bg-primary\/10"] {
+  background-color: #FFE66D/20 !important;
+}
+
+/* Clean text colors helper */
+.text-shadow {
+  text-shadow: 2px 2px 0px rgba(26, 26, 26, 0.15);
+}

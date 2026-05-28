@@ -1,0 +1,6 @@
+{
+  "name": "Mỹ Lan Connect Portal",
+  "description": "Cổng thông tin nội bộ và quản lý hoạt động cộng đồng, sự kiện, câu lạc bộ tại Mỹ Lan Connect v2.0",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
